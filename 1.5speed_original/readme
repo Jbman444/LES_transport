@@ -1,0 +1,33 @@
+cd /media/external/MyProject
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+
+pip freeze > requirements.txt
+
+
+# need to use openfoam 2406 for this to work 
+need to source both python3 and openfoam2406 for this case to work 
+
+
+# Add the repository
+curl https://dl.openfoam.com/add-debian-repo.sh | sudo bash
+wget -q -O - https://dl.openfoam.com/add-debian-repo.sh | sudo bash
+
+# Update the repository information
+sudo apt-get update
+
+# Install preferred package. Eg,
+sudo apt-get install openfoam2406-default
+
+# Use the openfoam shell session. Eg,
+openfoam2406
+
+
+mod1 
+
+    d_p: float = 0.0000625, # very fine sand (lower limit)
+
+    rho_p: float = 1840 # wet sand
+
